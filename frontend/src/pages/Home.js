@@ -17,21 +17,16 @@ const Home = () => {
       if (response.ok) {
         dispatch({ type: 'SET_SPLITS', payload: json })
       }
-
     }
     fetchSplits()
   }, [dispatch])
-
-
-
 
   return (
 
     <div className="home">
 
-      <div className="form-container">
         <AddSplit />
-      </div>
+
 
       <div className="splits">
         {splits && splits.map((split) => (

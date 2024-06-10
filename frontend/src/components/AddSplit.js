@@ -36,36 +36,43 @@ const AddSplit = () => {
       setTitle('')
       setWeekday('')
       setError(null)
-      dispatch({type: 'CREATE_SPLIT', payload: json })
+      dispatch({ type: 'CREATE_SPLIT', payload: json })
     }
 
   }
 
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>Weekday: </label>
-      <input
-        type="text"
-        onChange={(e) => {
-          setWeekday(e.target.value)
-        }}
-        value={weekday}
-      >
-
-      </input>
-      <label>
-        Title for Split:
-      </label>
-      <input
-        type="text"
-        onChange={(e) => {
-          setTitle(e.target.value)
-        }}
-        value={title}
-      >
-      </input>
-      <button type="submit" onClick={handleSubmit}>
+    <form className="add-split-form" onSubmit={handleSubmit}>
+      <div className="form-pairing">
+        <label>Day of Week:</label>
+        <select
+          onChange={(e) => setWeekday(e.target.value)}
+          selected value={weekday}>
+            <option value=""> </option>
+          <option value="Monday">Monday</option>
+          <option value="Tuesday">Tuesday</option>
+          <option value="Wednesday">Wednesday</option>
+          <option value="Thursday">Thursday</option>
+          <option value="Friday">Friday</option>
+          <option value="Saturday">Saturday</option>
+          <option value="Sunday">Sunday</option>
+        </select>
+      </div>
+      <div className="form-pairing">
+        <label>
+          Name:
+        </label>
+        <input
+          type="text"
+          onChange={(e) => {
+            setTitle(e.target.value)
+          }}
+          value={title}
+        >
+        </input>
+      </div>
+      <button className="submit-split-btn" type="submit" onClick={handleSubmit}>
         ADD
       </button>
     </form>

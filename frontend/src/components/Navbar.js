@@ -13,10 +13,8 @@ const Navbar = () => {
         <Link to="/" className="link">
           <h1>Fitness App</h1>
         </Link>
-
-
         <Link to="/search" className="link">
-            Search
+          Search
         </Link>
 
       </div>

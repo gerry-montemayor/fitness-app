@@ -52,12 +52,12 @@ export const splitReducer = (state, action) => {
     //     gyms: [...updatedGyms]
     //   }
 
-    // case 'DELETE_GYM':
-    //   return {
-    //     gyms: state.gyms.filter(gym => gym._id !== action.payload._id)
-    //   }
-    // default:
-    //   return state
+    case 'DELETE_SPLIT':
+      return {
+        splits: state.splits.filter(split => split._id !== action.payload._id)
+      }
+    default:
+      return state
   }
 }
 

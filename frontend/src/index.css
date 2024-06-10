@@ -1,32 +1,189 @@
+/* Colors
+  orange: #E88D67
+  white: #F3F7EC
+  lighter blue: #006989
+  darker blue: #005C78
+
+*/
+
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: "Open Sans";
+  color: white;
 }
 
 body {
-  background-color: lightgray;
+  background-color: #dce4ce;
 
 }
 
+/***** Homepage CSS  ******/
 .home {
-  background-color: orange;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .splits {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 10px;
+  height: auto;
+  padding: 10px;
+  max-height: 80vh;
+  overflow-y: auto
 }
+
+
+
+
+/*Navbar CSS */
 
 .navbar {
+  background-color: #ca6337;
   display: flex;
   gap: 20px;
+  align-items: center;
+  padding-left: 10px;
+  height: 10vh
 }
 
+.link {
+  text-decoration: none;
+  color: #F0EFF4
+}
+/******************************/
+
+/******* Split Add Form CSS *******/
+.add-split-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #128bb0 ;
+  height: 80px;
+  width: 600px;
+  border-radius: 30px;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.form-pairing {
+  display: flex;
+  gap: 10px;
+}
+
+.form-pairing > input {
+  color: black;
+}
+
+.form-pairing > select {
+  color: black
+}
+
+select > option {
+  color: black
+}
+
+.submit-split-btn {
+  background-color: rgb(20, 208, 20);
+  border: none;
+  padding: 5px;
+  border-radius: 20px;
+}
+
+/**********************************/
+
+/****** Split Details CSS ********/
 .split-details-container {
-  background-color: lightblue;
+  position: relative;
+  background-color: #005C78 ;
+  min-height: 160px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 10px;
+  border-radius: 30px;
+  overflow-x: auto;
 }
+
+.delete-split-btn {
+  background-color: orange;
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+#logo {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+  background: #f1f1f1;
+  padding: 4px;
+  border-radius: 50%;
+  color: #333;
+}
+
+/***** Add workout CSS  ******/
+.add-workout-popup {
+  position:fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000; /* Ensure the form is above other content */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  height: 200px;
+  gap: 5px;
+  align-items: center
+}
+
+.add-workout-form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+  color: black;
+}
+
+.add-workout-pairing > label {
+  color: black;
+}
+
+.add-workout-pairing > input {
+  color: black
+}
+
+.add-workout-pairing {
+  display: flex;
+  gap: 10px;
+}
+
+.add-workout-form > button {
+  background-color: rgb(20, 208, 20);
+  border: none;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.add-workout-form > label {
+  color: black
+}
+

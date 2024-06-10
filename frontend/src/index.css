@@ -107,7 +107,7 @@ select > option {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  border-radius: 30px;
+  border-radius: 20px;
   overflow-x: auto;
 }
 
@@ -147,7 +147,7 @@ select > option {
   display: flex;
   flex-direction: column;
   width: 400px;
-  height: 200px;
+  height: 220px;
   gap: 5px;
   align-items: center
 }
@@ -187,3 +187,43 @@ select > option {
   color: black
 }
 
+.add-workout-plus-btn {
+  width: 20px;
+  top: 10px;
+  right: 10px;
+  height: 20px;
+  background-color: red;
+}
+
+.split-details-header {
+  display: flex;
+  gap: 10px;
+}
+
+.split-workouts-container {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  overflow-x: auto
+}
+
+.workout-details {
+  background-color: #F3F7EC;
+  color: #E88D67;
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+  height: 120px;
+  border: 4px solid #2A2D34;
+  border-radius: 20px;
+  padding: 5px;
+  justify-content: center;
+}
+
+.workout-details > h3 {
+  color: black;
+}
+
+.workout-details > h4 {
+  color: black;
+}

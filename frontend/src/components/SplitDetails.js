@@ -2,6 +2,7 @@ import { useSplitsContext } from "../hooks/useSplitsContext"
 import '../index.css'
 import { useState } from 'react'
 import AddWorkout from './AddWorkout'
+import WorkoutDetails from './WorkoutDetails'
 
 const SplitDetails = (split) => {
 
@@ -27,10 +28,18 @@ const SplitDetails = (split) => {
 
   return (
     <div className="split-details-container">
-      <button onClick={() => { setShowForm(true) }}></button>
-      {showForm && <div className="add-workout-popup"> <span id="logo" className="material-symbols-outlined" onClick={()=> {setShowForm(false)}} >close</span><AddWorkout key={currSplit.name} split={split} /></div>}
-      <span id="logo" className="material-symbols-outlined" onClick={deleteSplit} >delete</span>
-      <h4> {currSplit.weekday} - {currSplit.title} </h4>
+      <div className="split-details-header">
+        {showForm && <div className="add-workout-popup"> <span id="logo" className="material-symbols-outlined" onClick={() => { setShowForm(false) }} >close</span><AddWorkout key={currSplit.name} split={currSplit._id} /></div>}
+        <span id="logo" className="material-symbols-outlined" onClick={deleteSplit} >delete</span>
+        <h4> {currSplit.weekday} - {currSplit.title}  </h4>
+        <span className="material-symbols-outlined" onClick={() => { setShowForm(true) }}>add </span>
+      </div>
+      <div className="split-workouts-container">
+        {currSplit.workouts && currSplit.workouts.map((workout) => (
+          <WorkoutDetails key={workout._id} workout={workout} splitId={currSplit._id}/>
+        ))}
+      </div>
+
     </div>
   )
 }

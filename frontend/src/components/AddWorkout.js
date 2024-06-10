@@ -1,43 +1,103 @@
-
 import React, { useState } from 'react';
+import { useSplitsContext } from '../hooks/useSplitsContext'; // Ensure this path is correct
 
-import '../index.css'
-import { useSplitsContext } from '../hooks/useSplitsContext'
+const AddWorkoutForm = (split) => {
+  const splitId = split.split
+  const { dispatch } = useSplitsContext();
+  const [name, setName] = useState('');
+  const [reps, setReps] = useState('');
+  const [sets, setSets] = useState('');
+  const [weight, setWeight] = useState(0);
+  const [bodyWeight, setBodyWeight] = useState(false);
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-const AddWorkout = (split) => {
+    const newWorkout = {
+      name,
+      reps,
+      sets,
+      weight,
+      bodyWeight
+    };
 
-  const { dispatch } = useSplitsContext()
-  const [name, setName] = useState('')
-  const [reps, setReps] = useState('')
-  const [sets, setSets] = useState('')
-  const [weight, setWeight] = useState(0)
-  const [bodyWeight, setBodyWeight] = useState(false)
+    const response = await fetch(`/api/splits/${splitId}`, {
+        method: 'POST',
+        body: JSON.stringify(newWorkout),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+    })
 
+    const json = await response.json()
+    if (response.ok) {
+      console.log("reached")
+      dispatch({type: 'ADD_WORKOUT', payload: {...json, "splitId": splitId}})
 
+    }
+
+    // Clear the form
+    setName('');
+    setReps('');
+    setSets('');
+    setWeight(0);
+    setBodyWeight(false);
+  };
 
   return (
-    <form className="add-workout-form">
+    <form className="add-workout-form" onSubmit={handleSubmit}>
       <label>Add a workout:</label>
       <div className="add-workout-pairing">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required />
+        <label htmlFor="name">Name:</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          required
+        />
       </div>
       <div className="add-workout-pairing">
-        <label for="sets">Sets:</label>
-        <input type="number" id="sets" name="sets" min="1" required />
+        <label htmlFor="sets">Sets:</label>
+        <input
+          type="number"
+          id="sets"
+          name="sets"
+          value={sets}
+          onChange={(e) => setSets(e.target.value)}
+          min="1"
+          required
+        />
       </div>
       <div className="add-workout-pairing">
-        <label for="reps">Reps:</label>
-        <input type="number" id="reps" name="reps" min="1" required />
+        <label htmlFor="reps">Reps:</label>
+        <input
+          type="number"
+          id="reps"
+          name="reps"
+          value={reps}
+          onChange={(e) => setReps(e.target.value)}
+          min="1"
+          required
+        />
       </div>
       <div className="add-workout-pairing">
-        <label for="weight">Weight (lbs):</label>
-        <input type="number" id="weight" name="weight" min="0" required />
+        <label htmlFor="weight">Weight (lbs):</label>
+        <input
+          type="number"
+          id="weight"
+          name="weight"
+          value={weight}
+          onChange={(e) => setWeight(e.target.value)}
+          min="0"
+          required
+        />
       </div>
+     
       <button type="submit">Submit</button>
     </form>
-  )
+  );
+};
 
-}
-export default AddWorkout
+export default AddWorkoutForm;

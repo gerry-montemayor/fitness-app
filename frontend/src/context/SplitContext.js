@@ -28,29 +28,30 @@ export const splitReducer = (state, action) => {
     //   return {
     //     gyms: [...updated]
     //   };
-    // case 'ADD_WORKOUT':
-    //   const workout = action.payload;
-    //   const gymId = workout.gym;
-    //   delete workout.name
-    //   delete workout.gym
+    case 'ADD_WORKOUT':
+      const workout = action.payload;
+      const splitId = workout.splitId;
+      delete workout.splitId
+
+      
 
 
-    //   const updatedGyms = state.gyms.map((gym) => {
-    //     if (gym._id === gymId) {
-    //       gym.workouts.push(workout)
-    //       return gym
-    //       // const newGym = JSON.parse(gym);
-    //       // newGym.workouts.push(workout)
-    //       // JSON.stringify(newGym)
-    //       // return newGym
-    //     } else {
-    //       return gym
-    //     }
-    //   })
-    //   console.log(updatedGyms)
-    //   return {
-    //     gyms: [...updatedGyms]
-    //   }
+      const updatedSplits = state.splits.map((split) => {
+        if (split._id === splitId) {
+          split.workouts.push(workout)
+          return split
+          // const newGym = JSON.parse(gym);
+          // newGym.workouts.push(workout)
+          // JSON.stringify(newGym)
+          // return newGym
+        } else {
+          return split
+        }
+      })
+      // console.log(updatedGyms)
+      return {
+        splits: [...updatedSplits]
+      }
 
     case 'DELETE_SPLIT':
       return {

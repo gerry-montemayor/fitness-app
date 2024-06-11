@@ -19,7 +19,6 @@ const addSplit = async (req,res) => {
   })
   try {
     await split.save()
-    console.log(split)
     return res.status(200).json(split)
   } catch (error) {
     res.status(400).json({error : error.message})
@@ -49,7 +48,6 @@ const deleteSplit = async (req,res) => {
 const addWorkoutToSplit = async (req,res) => {
   const params = req.params
   const splitId = params.splitId
-  console.log(splitId)
   const { name, reps, sets, weight} = req.body
 
   try {
@@ -73,9 +71,28 @@ const addWorkoutToSplit = async (req,res) => {
 
 }
 
+const deleteWorkoutFromSplit = async (req,res) => {
+  const splitId = req.params.splitId
+  const { workoutId } = req.body
+ 
+  try {
+    const updatedSplit = await Split.findByIdAndUpdate(
+      splitId,
+      { $pull: { workouts: {_id: workoutId}}},
+      {new: false}
+    );
+    // await updatedSplit.save()
+    return res.status(200).json(updatedSplit)
+  } catch (error) {
+    res.status(400).json({error: "Error removing workout"})
+  }
+
+}
+
 module.exports = {
   getSplits,
   addSplit,
   addWorkoutToSplit,
-  deleteSplit
+  deleteSplit,
+  deleteWorkoutFromSplit
 }

@@ -3,7 +3,8 @@ const {
   getSplits,
   addSplit,
   addWorkoutToSplit,
-  deleteSplit
+  deleteSplit,
+  deleteWorkoutFromSplit
 } = require('../controllers/splitController')
 
 const express = require('express')
@@ -23,6 +24,8 @@ router.delete('/splits/:splitId', deleteSplit)
 //add a workout to split by id
 router.post('/splits/:splitId', addWorkoutToSplit)
 
+//delete a workout from a split
+router.delete('/splits/delete/:splitId', deleteWorkoutFromSplit)
 
 module.exports = router
 

@@ -1,6 +1,6 @@
-import '../index.css'
+import '../../index.css'
 import { useState } from "react"
-import { useSplitsContext } from '../hooks/useSplitsContext'
+import { useSplitsContext } from '../../hooks/useSplitsContext'
 
 
 

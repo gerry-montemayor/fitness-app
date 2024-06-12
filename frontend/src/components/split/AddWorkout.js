@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { useSplitsContext } from '../hooks/useSplitsContext'; // Ensure this path is correct
+import { useSplitsContext } from '../../hooks/useSplitsContext'
+import '../../index.css'
+
 
 const AddWorkoutForm = (split) => {
   const splitId = split.split
@@ -56,6 +58,7 @@ const AddWorkoutForm = (split) => {
           value={name}
           onChange={(e) => setName(e.target.value)}
           required
+          style={{width: '150px'}}
         />
       </div>
       <div className="add-workout-pairing">

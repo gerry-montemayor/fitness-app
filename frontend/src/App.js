@@ -2,9 +2,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 
 import Home from "./pages/Home"
-import SearchExercises from './components/SearchExercises'
+import SearchExercises from './components/search/SearchExercises'
 import Navbar from "./components/Navbar"
-import Splits from "./components/SplitDetails"
+import Splits from "./components/split/SplitDetails"
 
 
 function App() {

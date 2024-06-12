@@ -1,8 +1,8 @@
 import '../index.css'
 import { useEffect, useState } from 'react'
 import { useSplitsContext } from '../hooks/useSplitsContext'
-import AddSplit from '../components/AddSplit'
-import SplitDetails from '../components/SplitDetails'
+import AddSplit from '../components/split/AddSplit'
+import SplitDetails from '../components/split/SplitDetails'
 
 
 const Home = () => {

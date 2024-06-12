@@ -17,7 +17,8 @@
 
 body {
   background-color: #dce4ce;
-
+  display: flex;
+  justify-content: center;
 }
 
 /***** Homepage CSS  ******/
@@ -48,6 +49,7 @@ body {
   background-color: #ca6337;
   display: flex;
   gap: 20px;
+  width: 100vw;
   align-items: center;
   padding-left: 10px;
   height: 10vh
@@ -70,6 +72,18 @@ body {
   border-radius: 30px;
   gap: 10px;
   margin-top: 10px;
+}
+
+@media (max-width: 700px) {
+  .add-split-form {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    padding: 10px; 
+    width: 90%; /* Adjust width for smaller screens */
+  }
+
 }
 
 .form-pairing {
@@ -102,7 +116,7 @@ select > option {
 .split-details-container {
   position: relative;
   background-color: #005C78 ;
-  min-height: 160px;
+  min-height: 200px;
   padding: 10px;
   display: flex;
   flex-direction: column;
@@ -111,16 +125,15 @@ select > option {
   overflow-x: auto;
 }
 
-.delete-split-btn {
+/* .delete-split-btn {
   background-color: orange;
   height: 20px;
   width: 20px;
-  position: absolute;
-  top: 10px;
+  position: absolute;  top: 10px;
   right: 10px;
-}
+} */
 
-#logo {
+.btn{
   position: absolute;
   top: 10px;
   right: 15px;
@@ -131,6 +144,10 @@ select > option {
   color: #333;
 }
 
+.add-workout-btn {
+  right: 60px;
+}
+
 /***** Add workout CSS  ******/
 .add-workout-popup {
   position:fixed;
@@ -138,7 +155,6 @@ select > option {
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #fff;
-  padding: 20px;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -149,7 +165,14 @@ select > option {
   width: 400px;
   height: 220px;
   gap: 5px;
-  align-items: center
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 700px) {
+  .add-workout-popup {
+    width: 70%
+  }
 }
 
 .add-workout-form {
@@ -163,17 +186,20 @@ select > option {
   color: black;
 }
 
+
+
 .add-workout-pairing > label {
   color: black;
 }
 
 .add-workout-pairing > input {
-  color: black
+  color: black;
+  width: 40px;
 }
 
 .add-workout-pairing {
   display: flex;
-  gap: 10px;
+  gap: 25px;
 }
 
 .add-workout-form > button {
@@ -184,14 +210,13 @@ select > option {
 }
 
 .add-workout-form > label {
-  color: black
+  color: black;
 }
 
 .add-workout-plus-btn {
-  width: 20px;
-  top: 10px;
+  position: absolute;
+  top: 20px;
   right: 10px;
-  height: 20px;
   background-color: red;
 }
 
@@ -199,6 +224,16 @@ select > option {
   display: flex;
   gap: 10px;
 }
+
+
+@media (max-width: 700px) {
+  .split-details-header {
+    flex-direction: column;
+    gap: 0px;
+  }
+}
+
+
 
 .split-workouts-container {
   display: flex;
@@ -226,4 +261,35 @@ select > option {
 
 .workout-details > h4 {
   color: black;
+}
+
+/**** Search Exercises CSS ******/
+
+.search {
+  background-color: red;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column
+}
+
+.search-exercises-form {
+  background-color: blue;
+  height: 100px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-exercises-form button {
+  border: 3px solid lightgray;
+  padding: 5px;
+  color: black;
+  font-weight: 500;
+  background-color: white;
+  border-radius: 20px;
+  font-size: 18px;
+  min-width: 70px;
 }

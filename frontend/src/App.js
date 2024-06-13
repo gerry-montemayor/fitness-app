@@ -5,7 +5,7 @@ import Home from "./pages/Home"
 import SearchExercises from './components/search/SearchExercises'
 import Navbar from "./components/Navbar"
 import Splits from "./components/split/SplitDetails"
-
+import Search from './pages/Search'
 
 function App() {
   return (
@@ -20,10 +20,7 @@ function App() {
             />
             <Route
               path="/search"
-              element={<SearchExercises />} />
-            <Route
-              path="/splits"
-              element={<Splits />} />
+              element={<Search />} />
           </Routes>
         </div>
       </BrowserRouter>

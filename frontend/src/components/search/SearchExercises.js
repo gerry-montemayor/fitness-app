@@ -40,34 +40,57 @@ const SearchExercises = () => {
 
   useEffect(() => {
     if (filters.includes("chest")) {
-      chestRef.current.style.backgroundColor = 'green'
+      chestRef.current.style.backgroundColor = '#82E56C'
+      chestRef.current.style.borderColor = 'black'
     } else {
       chestRef.current.style.backgroundColor = 'white'
+      chestRef.current.style.borderColor = 'lightgray'
+
     }
     if (filters.includes("back")) {
-      backRef.current.style.backgroundColor = 'green'
+      backRef.current.style.backgroundColor = '#82E56C'
+      backRef.current.style.borderColor = 'black'
+
     } else {
       backRef.current.style.backgroundColor = 'white'
+      backRef.current.style.borderColor = 'lightgray'
+
     }
     if (filters.includes("legs")) {
-      legsRef.current.style.backgroundColor = 'green'
+      legsRef.current.style.backgroundColor = '#82E56C'
+      legsRef.current.style.borderColor = 'black'
+
     } else {
       legsRef.current.style.backgroundColor = 'white'
+      legsRef.current.style.borderColor = 'lightgray'
+
     }
     if (filters.includes("shoulders")) {
-      shouldersRef.current.style.backgroundColor = 'green'
+      shouldersRef.current.style.backgroundColor = '#82E56C'
+      shouldersRef.current.style.borderColor = 'black'
+
     } else {
       shouldersRef.current.style.backgroundColor = 'white'
+      shouldersRef.current.style.borderColor = 'lightgray'
+
     }
     if (filters.includes("arms")) {
-      armsRef.current.style.backgroundColor = 'green'
+      armsRef.current.style.backgroundColor = '#82E56C'
+      armsRef.current.style.borderColor = 'black'
+
     } else {
       armsRef.current.style.backgroundColor = 'white'
+      armsRef.current.style.borderColor = 'lightgray'
+
     }
     if (filters.includes("core")) {
-      coreRef.current.style.backgroundColor = 'green'
+      coreRef.current.style.backgroundColor = '#82E56C'
+      coreRef.current.style.borderColor = 'black'
+
     } else {
       coreRef.current.style.backgroundColor = 'white'
+      coreRef.current.style.borderColor = 'lightgray'
+
     }
 
     handleSubmit()

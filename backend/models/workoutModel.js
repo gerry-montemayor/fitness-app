@@ -16,14 +16,8 @@ const workoutSchema = new Schema({
     required: true
   },
   weight: {
-    type: Schema.Types.Mixed,
-    required: true,
-    validate: {
-      validator: function(v) {
-        return typeof v === 'string' && v === 'body weight' || typeof v === 'number';
-      },
-      message: props => `${props.value} is not a valid weight!`
-    }
+    type: Number,
+    required: true
   }
 })
 

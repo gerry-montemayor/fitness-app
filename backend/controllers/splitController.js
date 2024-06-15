@@ -5,17 +5,22 @@ const mongoose = require('mongoose')
 
 //get all splits
 const getSplits = async (req,res) => {
-  const splits = await Split.find({}).sort({createdAt: -1})
+  const user_id = req.user._id
+
+  const splits = await Split.find({user_id}).sort({createdAt: -1})
   res.status(200).json(splits)
 }
 
 //add an empty split
 const addSplit = async (req,res) => {
   const { weekday, title } = req.body
+  const user_id = req.user._id
+
   const split = new Split({
     weekday,
     title, 
-    workouts: []
+    workouts: [],
+    user_id
   })
   try {
     await split.save()
@@ -49,7 +54,6 @@ const addWorkoutToSplit = async (req,res) => {
   const params = req.params
   const splitId = params.splitId
   const { name, reps, sets, weight} = req.body
-
   try {
     const split = await Split.findById(splitId)
 

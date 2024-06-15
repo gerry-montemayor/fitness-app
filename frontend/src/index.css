@@ -254,6 +254,7 @@ select > option {
   border-radius: 20px;
   padding: 5px;
   justify-content: center;
+  overflow-x: hidden;
 }
 
 .workout-details > h3 {
@@ -331,7 +332,7 @@ select > option {
   display: flex;
   height: 160px;
   flex-direction: column;
-  width: 300px;
+  width: 330px;
   padding: 10px;
   border-radius: 25px;
 }

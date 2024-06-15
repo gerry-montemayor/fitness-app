@@ -1,20 +1,27 @@
 import '../../index.css'
 import { useState } from "react"
 import { useSplitsContext } from '../../hooks/useSplitsContext'
-
+import { useAuthContext } from '../../hooks/useAuthContext'
 
 
 
 const AddSplit = () => {
   const { dispatch } = useSplitsContext()
+  const { user } = useAuthContext()
 
   const [weekday, setWeekday] = useState('')
   const [title, setTitle] = useState('')
   const [error, setError] = useState('')
 
+
+
   //add split
   const handleSubmit = async (e) => {
     e.preventDefault()
+    if (!user) {
+      setError('You must be logged in')
+      return
+    }
 
     const split = { weekday, title }
 
@@ -22,7 +29,10 @@ const AddSplit = () => {
       method: 'POST',
       body: JSON.stringify(split),
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${user.token}`
+
+
       }
     })
     const json = await response.json()
@@ -49,7 +59,7 @@ const AddSplit = () => {
         <select
           onChange={(e) => setWeekday(e.target.value)}
           selected value={weekday}>
-            <option value=""> </option>
+          <option value=""> </option>
           <option value="Monday">Monday</option>
           <option value="Tuesday">Tuesday</option>
           <option value="Wednesday">Wednesday</option>

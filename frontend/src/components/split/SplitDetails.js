@@ -3,17 +3,30 @@ import '../../index.css'
 import { useState } from 'react'
 import AddWorkout from './AddWorkout'
 import WorkoutDetails from './WorkoutDetails'
+import { useAuthContext } from "../../hooks/useAuthContext"
+
 
 const SplitDetails = (split) => {
 
+
   const currSplit = split.split
   const { dispatch } = useSplitsContext()
+  const { user } = useAuthContext()
   const [showForm, setShowForm] = useState(false)
 
   const deleteSplit = async (e) => {
+    if (!user) {
+      return
+    }
+
     e.preventDefault()
     const response = await fetch('/api/splits/' + currSplit._id, {
-      method: 'DELETE'
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${user.token}`
+
+      }
+      
     })
     const json = await response.json()
 

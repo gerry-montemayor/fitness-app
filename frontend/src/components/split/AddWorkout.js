@@ -1,40 +1,44 @@
 import React, { useState } from 'react';
 import { useSplitsContext } from '../../hooks/useSplitsContext'
 import '../../index.css'
+import { useAuthContext } from '../../hooks/useAuthContext';
 
 
 const AddWorkoutForm = (split) => {
   const splitId = split.split
   const { dispatch } = useSplitsContext();
+  const { user } = useAuthContext();
   const [name, setName] = useState('');
   const [reps, setReps] = useState('');
   const [sets, setSets] = useState('');
-  const [weight, setWeight] = useState(0);
-  const [bodyWeight, setBodyWeight] = useState(false);
+  const [weight, setWeight] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    
     const newWorkout = {
       name,
       reps,
       sets,
       weight,
-      bodyWeight
+
     };
 
     const response = await fetch(`/api/splits/${splitId}`, {
-        method: 'POST',
-        body: JSON.stringify(newWorkout),
-        headers: {
-          'Content-Type': 'application/json'
-        }
+      method: 'POST',
+      body: JSON.stringify(newWorkout),
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${user.token}`
+
+
+      }
     })
 
     const json = await response.json()
     if (response.ok) {
       console.log("reached")
-      dispatch({type: 'ADD_WORKOUT', payload: {...json, "splitId": splitId}})
+      dispatch({ type: 'ADD_WORKOUT', payload: { ...json, "splitId": splitId } })
 
     }
 
@@ -42,8 +46,7 @@ const AddWorkoutForm = (split) => {
     setName('');
     setReps('');
     setSets('');
-    setWeight(0);
-    setBodyWeight(false);
+    setWeight('');
   };
 
   return (
@@ -58,7 +61,7 @@ const AddWorkoutForm = (split) => {
           value={name}
           onChange={(e) => setName(e.target.value)}
           required
-          style={{width: '150px'}}
+          style={{ width: '150px' }}
         />
       </div>
       <div className="add-workout-pairing">
@@ -93,11 +96,11 @@ const AddWorkoutForm = (split) => {
           name="weight"
           value={weight}
           onChange={(e) => setWeight(e.target.value)}
-          min="0"
+          min="1"
           required
         />
       </div>
-     
+
       <button type="submit">Submit</button>
     </form>
   );

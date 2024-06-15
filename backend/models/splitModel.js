@@ -38,7 +38,11 @@ const splitSchema = new Schema({
     type: String,
     required: true
   },
-  workouts: [workoutSchema]
+  workouts: [workoutSchema],
+  user_id: {
+    type: String,
+    required: true
+  }
 })
 
 const Split = mongoose.model('Split', splitSchema);

@@ -7,10 +7,14 @@ const {
   deleteWorkoutFromSplit
 } = require('../controllers/splitController')
 
+const requireAuth = require("../middleware/requireAuth")
+
 const express = require('express')
 
 
 const router = express.Router()
+
+router.use('/splits',requireAuth)
 
 //get all splits
 router.get('/splits', getSplits)

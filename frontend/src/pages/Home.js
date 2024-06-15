@@ -3,29 +3,38 @@ import { useEffect, useState } from 'react'
 import { useSplitsContext } from '../hooks/useSplitsContext'
 import AddSplit from '../components/split/AddSplit'
 import SplitDetails from '../components/split/SplitDetails'
+import { useAuthContext } from '../hooks/useAuthContext'
 
 
 const Home = () => {
   const { state, dispatch } = useSplitsContext()
   const { splits } = state
+  const { user } = useAuthContext()
+
 
   useEffect(() => {
     const fetchSplits = async () => {
-      const response = await fetch('/api/splits')
+      const response = await fetch('/api/splits', {
+        headers: {
+          'Authorization': `Bearer ${user.token}`
+        }
+      })
       const json = await response.json()
 
       if (response.ok) {
         dispatch({ type: 'SET_SPLITS', payload: json })
       }
     }
-    fetchSplits()
-  }, [dispatch])
+    if (user) {
+      fetchSplits()
+    }
+  }, [dispatch, user])
 
   return (
 
     <div className="home">
 
-        <AddSplit />
+      <AddSplit />
 
 
       <div className="splits">

@@ -1,9 +1,10 @@
 import { useSplitsContext } from '../../hooks/useSplitsContext'
 import '../../index.css'
+import { useAuthContext } from '../../hooks/useAuthContext'
 
 const WorkoutDetails = ({ workout, splitId }) => {
   const { dispatch } = useSplitsContext()
-
+  const { user } = useAuthContext()
   const handleClick = async (e) => {
 
     // const response = await fetch(`/api/gyms/`)
@@ -13,7 +14,9 @@ const WorkoutDetails = ({ workout, splitId }) => {
       method: 'DELETE',
       body: JSON.stringify({ "workoutId": workout._id }),
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${user.token}`
+
       }
     })
 

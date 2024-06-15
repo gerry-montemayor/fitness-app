@@ -53,7 +53,8 @@ body {
   width: 100vw;
   align-items: center;
   padding-left: 10px;
-  height: 10vh
+  height: 10vh;
+  justify-content: left
 }
 
 .link {
@@ -357,3 +358,84 @@ select > option {
 .emoji {
   font-size: 15px;
 }
+
+
+.user-nav {
+  display: flex;
+  margin-left: auto;
+  margin-right: 20px;
+}
+
+.logged-in {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+}
+
+.logged-out,.logout-btn {
+  display: flex;
+  gap: 15px;
+  text-decoration: none;
+  background-color: #005C78;
+  padding: 8px;
+  border-radius: 20px;
+  border: none;
+}
+
+@media (max-width: 700px) {
+  .logged-out {
+    font-size: 12px;
+  }
+
+}
+
+
+
+.log-link {
+  text-decoration: none;
+}
+
+.log-link:hover {
+  color: #2A2D34
+}
+
+.logout-btn:hover {
+  color: #2A2D34
+
+}
+
+.log-container {
+  width: 100vw;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login,.signup {
+  background-color: #128bb0;
+  width: 300px;
+  padding: 20px;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  flex-direction: column;
+}
+
+.log-btn {
+  margin-top: 10px;
+  background-color: #ccc;
+  border: none;
+  padding: 5px;
+  color: black;
+  border-radius: 10px;
+}
+
+.log-btn:hover {
+  background-color: #5a5858;
+}
+
+

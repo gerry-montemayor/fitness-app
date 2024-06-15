@@ -14,28 +14,30 @@ const Login = () => {
 
 
   return (
-    <form className="login" onSubmit={handleSubmit}>
-      <h3>Login</h3>
+    <div className="log-container">
+      <form className="login" onSubmit={handleSubmit}>
+        <h3>Login</h3>
 
-      <label>Username:</label>
-      <input
-        style={{ color: 'black' }}
-        type="username"
-        onChange={(e) => { setUsername(e.target.value) }}
-      />
+        <label>Username:</label>
+        <input
+          style={{ color: 'black' }}
+          type="username"
+          onChange={(e) => { setUsername(e.target.value) }}
+        />
 
-      <label>Password:</label>
-      <input
-        style={{ color: 'black' }}
+        <label>Password:</label>
+        <input
+          style={{ color: 'black' }}
 
-        type="password"
-        onChange={(e) => { setPassword(e.target.value) }}
-      />
+          type="password"
+          onChange={(e) => { setPassword(e.target.value) }}
+        />
 
-      <button disabled={isLoading}>Login </button>
-      {error && <div>{error}</div>}
+        <button className="log-btn" disabled={isLoading}>Login </button>
+        {error && <div>{error}</div>}
 
-    </form>
+      </form>
+    </div>
 
 
 

@@ -23,26 +23,26 @@ const Navbar = () => {
         <Link to="/" className="link">
           <h1>Fitness App</h1>
         </Link>
-        <Link to="/search" className="link">
-          Search
-        </Link>
-        <nav>
+        {user &&
+          <Link to="/search" className="link">
+            Search
+          </Link>
+        }
+        <nav className="user-nav">
           {user &&
-            <div>
-              <span>{user && user.email}</span>
-              <button onClick={handleClick}>
+            <div className="logged-in">
+              <span>{user && user.username}</span>
+              <button className="logout-btn" onClick={handleClick}>
                 Logout
               </button>
             </div>
           }
           {!user && (
-            <div>
-              <Link to="/login">Login</Link>
-              <Link to="/signup">Signup</Link>
+            <div className="logged-out">
+              <Link className="log-link" to="/login">Login</Link>
+              <Link className="log-link" to="/signup">Signup</Link>
             </div>
           )}
-
-
         </nav>
       </div>
     </header >

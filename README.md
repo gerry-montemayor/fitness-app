@@ -1,7 +1,3 @@
-Gym App
+This is the development branch for the fitness app.
 
-- Create custom splits
-- Search a database of workouts to choose from
-
-  TODO:
-  - Users can follow friends and see their splits
+This branch is the most recent version of the fitness app that is in deployment on EC2.

@@ -20,7 +20,7 @@ const SplitDetails = (split) => {
     }
 
     e.preventDefault()
-    const response = await fetch('/api/splits/' + currSplit._id, {
+    const response = await fetch('http://localhost:4000/api/splits/' + currSplit._id, {
       method: 'DELETE',
       headers: {
         'Authorization': `Bearer ${user.token}`

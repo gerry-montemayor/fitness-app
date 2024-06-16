@@ -24,7 +24,7 @@ const AddWorkoutForm = (split) => {
 
     };
 
-    const response = await fetch(`/api/splits/${splitId}`, {
+    const response = await fetch(`http://localhost:4000/api/splits/${splitId}`, {
       method: 'POST',
       body: JSON.stringify(newWorkout),
       headers: {

@@ -10,7 +10,7 @@ const WorkoutDetails = ({ workout, splitId }) => {
     // const response = await fetch(`/api/gyms/`)
     console.log(splitId)
     console.log(workout)
-    const response = await fetch(`/api/splits/delete/${splitId}`, {
+    const response = await fetch(`http://localhost:4000/api/splits/delete/${splitId}`, {
       method: 'DELETE',
       body: JSON.stringify({ "workoutId": workout._id }),
       headers: {

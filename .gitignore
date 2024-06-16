@@ -3,3 +3,6 @@
 /backend/node_modules/
 /backend/package-lock.json
 /backend/.env
+docker-compose.yml
+/backend/Dockerfile
+/frontend/Dockerfile

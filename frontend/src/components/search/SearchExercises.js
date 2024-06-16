@@ -22,7 +22,7 @@ const SearchExercises = () => {
     if (e) e.preventDefault()
     const setFilters = filters
     try {
-      const response = await fetch('/api/filter', {
+      const response = await fetch('http://localhost:4000/api/filter', {
         method: 'POST',
         body: JSON.stringify({ filters: setFilters }),
         headers: {

@@ -14,7 +14,7 @@ const Home = () => {
 
   useEffect(() => {
     const fetchSplits = async () => {
-      const response = await fetch('/api/splits', {
+      const response = await fetch('http://localhost:4000/api/splits', {
         headers: {
           'Authorization': `Bearer ${user.token}`
         }

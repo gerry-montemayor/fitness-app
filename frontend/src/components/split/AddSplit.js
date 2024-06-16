@@ -25,7 +25,7 @@ const AddSplit = () => {
 
     const split = { weekday, title }
 
-    const response = await fetch('/api/splits', {
+    const response = await fetch('http://localhost:4000/api/splits', {
       method: 'POST',
       body: JSON.stringify(split),
       headers: {

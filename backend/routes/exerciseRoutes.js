@@ -2,6 +2,7 @@
 const {
   getExercises,
   addExercise,
+  addExercises,
   getFilteredExercises
 } = require('../controllers/exerciseController')
 
@@ -14,7 +15,7 @@ const router = express.Router()
 router.get('/exercises', getExercises)
 
 //add an exercise 
-router.post('/exercises', addExercise)
+router.post('/exercises', addExercises)
 
 //get filtered exercises
 router.post('/filter', getFilteredExercises)

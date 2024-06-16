@@ -23,6 +23,31 @@ const addExercise = async (req, res) => {
   }
 }
 
+
+const addExercises = async (req, res) => {
+  const { exercises } = req.body;
+
+  // Ensure exercises is an array
+  if (!Array.isArray(exercises)) {
+    return res.status(400).json({ error: 'Invalid input: exercises must be an array' });
+  }
+
+  try {
+    // Use Promise.all to save all exercises concurrently
+    const savedExercises = await Promise.all(
+      exercises.map(async (exerciseData) => {
+        const { name, description, targeted } = exerciseData;
+        const exercise = new Exercise({ name, description, targeted });
+        return await exercise.save();
+      })
+    );
+
+    return res.status(200).json(savedExercises);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
+
 //get filtered exercises, request has list of targeted muscle groups
 const getFilteredExercises = async (req, res) => {
   const filters = req.body.filters
@@ -39,5 +64,6 @@ const getFilteredExercises = async (req, res) => {
 module.exports = {
   getExercises,
   addExercise,
+  addExercises,
   getFilteredExercises
 }

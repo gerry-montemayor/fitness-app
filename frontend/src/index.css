@@ -17,9 +17,7 @@
 
 body {
   background-color: #dce4ce;
-  display: flex;
   width: 100%;
-  justify-content: center;
 }
 
 /***** Homepage CSS  ******/
@@ -50,7 +48,6 @@ body {
   background-color: #ca6337;
   display: flex;
   gap: 20px;
-  width: 100vw;
   align-items: center;
   padding-left: 10px;
   height: 10vh;
@@ -83,10 +80,24 @@ body {
     align-items: center;
     height: auto;
     padding: 10px; 
-    width: 90%; /* Adjust width for smaller screens */
+    width: 400px;
   }
 
 }
+@media (max-width: 500px) {
+  .add-split-form {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    padding: 10px; 
+    width: 300px;
+  }
+
+}
+
+
+
 
 .form-pairing {
   display: flex;
@@ -124,7 +135,6 @@ select > option {
   flex-direction: column;
   gap: 10px;
   border-radius: 20px;
-  overflow-x: auto;
 }
 
 /* .delete-split-btn {
@@ -219,12 +229,12 @@ select > option {
   position: absolute;
   top: 20px;
   right: 10px;
-  background-color: red;
 }
 
 .split-details-header {
   display: flex;
   gap: 10px;
+  
 }
 
 
@@ -241,8 +251,10 @@ select > option {
   display: flex;
   flex-direction: row;
   gap: 5px;
-  overflow-x: auto
+  overflow-x: auto;
 }
+
+
 
 .workout-details {
   background-color: #F3F7EC;
@@ -309,6 +321,7 @@ select > option {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 15px;
+  max-height: 60vh;
   overflow-x: hidden;
   overflow-y: auto;
   margin-bottom: 10px;
@@ -368,7 +381,7 @@ select > option {
 
 .logged-in {
   display: flex;
-  gap: 15px;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -438,4 +451,44 @@ select > option {
   background-color: #5a5858;
 }
 
+.nav-items {
+  display: flex;
+  gap: 10px;
+  margin-left: auto;
+  margin-right: 20px;
+}
 
+.profile-container {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile {
+
+  padding: 10px;
+  margin-top: 100px;
+  width: 300px;
+  background-color: #128bb0;
+  border: 3px solid white;
+  border-radius: 20px;
+}
+
+.login-signup-container {
+  margin-left: auto;
+  margin-right: 20px;
+  display: flex;
+  gap: 20px;
+}
+
+
+
+.login-signup-container > .option {
+  text-decoration: none;
+  display: flex;
+}
+
+.login-signup-container > .option:hover {
+  color: #2A2D34
+}
